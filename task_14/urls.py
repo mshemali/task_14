@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from restaurants import views
-from api.views import RestaurantListView
+from api.views import RestaurantListView, DetailView, UpdateListView, DeleteListView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -56,7 +56,11 @@ urlpatterns = [
     path('signout/', views.signout, name='signout'),
     path('no-access/', views.no_access, name='no-access'),
     path('api/list/', RestaurantListView.as_view(), name='api-list'),
-    path('list/', RestaurantListView.as_view(), name='list'),
+    # path('list/', RestaurantListView.as_view(), name='list'),
+    path('api/detail/<int:rest_id>/', DetailView.as_view(), name='detail'),
+    path('api/update/<int:rest_id>/', UpdateListView.as_view(), name='detail'),
+    path('api/delete/<int:rest_id>/', DeleteListView.as_view(), name='delete'),
+    # path('detail/<int:object_id>/', DetailView.as_view(), name='detail'),
 ]
 
 if settings.DEBUG:

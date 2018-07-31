@@ -18,7 +18,7 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from restaurants import views
-from api.views import RestaurantListView, DetailView, UpdateListView, DeleteListView
+from api.views import RestaurantListView, DetailView, UpdateListView, DeleteListView, CreateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -60,6 +60,7 @@ urlpatterns = [
     path('api/detail/<int:rest_id>/', DetailView.as_view(), name='detail'),
     path('api/update/<int:rest_id>/', UpdateListView.as_view(), name='detail'),
     path('api/delete/<int:rest_id>/', DeleteListView.as_view(), name='delete'),
+    path('api/create/', CreateView.as_view(), name='create'),
     # path('detail/<int:object_id>/', DetailView.as_view(), name='detail'),
 ]
 

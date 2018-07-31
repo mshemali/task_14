@@ -18,3 +18,10 @@ class UpdateRestaurantSerializer(serializers.ModelSerializer):
     class Meta:
         model = Restaurant
         fields = '__all__'
+
+
+class CreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Restaurant
+        # fields = '__all__'
+        exclude = ['owner']
